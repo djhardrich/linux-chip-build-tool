@@ -11,7 +11,7 @@
 MULTISTRAP_CONF_FILE="$1"
 BUILD_DIR="/home/vagrant"
 OUTPUT_DIR="/vagrant"
-BUILDROOT_PATH="$BUILD_DIR/CHIP-buildroot"
+BUILDROOT_PATH="$BUILD_DIR/Gadget-OS"
 ROOTFS_DIR="$BUILD_DIR/rootfs"
 
 # This compiles CHIP-buildroot and decompresses the resulting rootfs
@@ -19,8 +19,9 @@ ROOTFS_DIR="$BUILD_DIR/rootfs"
 # Note: This can take a LONG time! Even on a powerful machine.
 compile_chip_buildroot () {
   cd $BUILDROOT_PATH
-  make chippro_defconfig
-  make
+  git clone git://git.busybox.net/buildroot
+  OUTPUT_DIR=output BR_DIR=buildroot BR2_DL_DIR=dl no_docker=stuff make chippro_defconfig
+  OUTPUT_DIR=output BR_DIR=buildroot BR2_DL_DIR=dl no_docker=stuff make
   rm -rf buildroot-rootfs
   mkdir buildroot-rootfs
   tar -xf $BUILDROOT_PATH/output/images/rootfs.tar -C ./buildroot-rootfs

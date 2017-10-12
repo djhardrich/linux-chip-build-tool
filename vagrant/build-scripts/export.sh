@@ -22,7 +22,7 @@ mkdir -p $CHIP_BASE_IMAGE_DIR
 cp -pr $BUILD_DIR/rootfs $CHIP_BASE_IMAGE_DIR/rootfs
 
 # Create new uboot archive
-cp -pr $BUILD_DIR/CHIP-buildroot/output/build/uboot-nextthing_2016.01_next $CHIP_BASE_IMAGE_DIR/uboot
+cp -pr $BUILD_DIR/Gadget-OS/buildroot/output/build/uboot-nextthing_2016.01_next $CHIP_BASE_IMAGE_DIR/uboot
 
 # Create new final archive
 sudo rm -rf $VAGRANT_DIR/output

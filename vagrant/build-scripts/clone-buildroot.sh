@@ -3,10 +3,10 @@
 # fork of CHIP-buildroot!
 
 echo -e "\n Installing CHIP-buildroot"
-if [ ! -d CHIP-buildroot ]; then
-  git clone -b update-dtc-overlay-url https://github.com/msolters/CHIP-buildroot
+if [ ! -d Gadget-OS ]; then
+  git clone https://github.com/NextThingCo/Gadget-OS.git
 else
-  pushd CHIP-buildroot
+  pushd Gadget-OS
   git pull
   popd
 fi
