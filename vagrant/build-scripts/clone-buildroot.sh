@@ -10,3 +10,16 @@ else
   git pull
   popd
 fi
+
+
+
+
+##TIPS TO FIX UBI + KERNEL BOOT
+##FROM HOME
+#git clone https://github.com/NextThingCo/chip-u-boot
+#git checkout nexthing/2016.01/next
+#make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- chippro_defconfig
+#make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+#FROM CHIP TOOLS DIR
+#sudo ./chip-create-nand-images ../../chip-u-boot ../../vagrant/output/rootfs.tar output
+#./chip-update-firmware.sh -L output -F Toshiba_512M_SLC
