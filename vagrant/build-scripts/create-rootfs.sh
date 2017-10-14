@@ -30,8 +30,9 @@ compile_chip_buildroot () {
 # Copy over relevant kernel and kernel modules for the CHIP Pro board
 # from the CHIP-buildroot rootfs
 copy_boot_modules () {
-  cp -r $BUILDROOT_PATH/buildroot-rootfs/boot/* $ROOTFS_DIR/boot/
-  cp -r $BUILDROOT_PATH/buildroot-rootfs/lib/modules $ROOTFS_DIR/lib/
+  cp -r $BUILDROOT_PATH/buildroot/output/images/zImage $ROOTFS_DIR/boot/
+  cp -r $BUILDROOT_PATH/buildroot/output/images/ntc-gr8-crumb.dtb $ROOTFS_DIR/boot/
+  cp -r $BUILDROOT_PATH/buildroot/output/target/lib/modules $ROOTFS_DIR/lib/
 }
 
 # Create a rootfs using multistrap and clean any old data
